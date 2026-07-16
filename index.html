@@ -1,0 +1,49 @@
+Exit code: 0
+Wall time: 2.1 seconds
+Output:
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#6b58d7">
+  <title>灏忓皬鑻辫闂叧</title>
+  <style>
+    :root{--purple:#6b58d7;--pink:#ff7197;--yellow:#ffd45b;--ink:#2b315d;--soft:#f5f3ff;--green:#3abf78}
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(155deg,#e9e4ff,#fff1f5 52%,#fff8df);font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);min-height:100vh}
+    .app{max-width:640px;margin:auto;padding:20px 16px 36px}.brand{text-align:center;color:var(--purple);margin:6px 0 16px}.brand h1{font-size:32px;margin:0}.brand p{margin:6px 0 0;font-weight:bold}.card{background:#fff;border-radius:28px;padding:22px;box-shadow:0 10px 30px #7165a329}.hidden{display:none!important}
+    h2{margin:0 0 10px;text-align:center;font-size:26px}.intro{text-align:center;line-height:1.7}.name{display:block;width:100%;border:2px solid #d9d1ff;border-radius:16px;padding:14px;font:inherit;font-size:18px;text-align:center;margin:18px 0}.button{border:0;border-radius:16px;padding:14px 20px;font:inherit;font-weight:800;font-size:18px;cursor:pointer;background:var(--purple);color:#fff;box-shadow:0 5px 0 #4e3ba9}.button:active{transform:translateY(3px);box-shadow:0 2px 0 #4e3ba9}.button.secondary{background:#eeeaff;color:var(--purple);box-shadow:0 5px 0 #d4ceef}.button.full{width:100%}
+    .stage-grid{display:grid;gap:13px}.stage{width:100%;border:0;border-radius:19px;text-align:left;padding:16px;background:#fff;box-shadow:0 5px 0 #ddd8f4;cursor:pointer;color:var(--ink);font:inherit}.stage strong{font-size:20px}.stage span{display:block;color:#746f99;margin-top:4px}.stage.done{background:#e6faed}.stage.locked{opacity:.55;cursor:not-allowed}.progress{height:13px;background:#ebe8f8;border-radius:10px;margin:10px 0 19px;overflow:hidden}.progress div{height:100%;background:linear-gradient(90deg,var(--pink),var(--yellow));border-radius:10px;transition:width .3s}.topline{display:flex;align-items:center;justify-content:space-between;font-weight:bold}.mini{border:0;background:#eeeaff;color:var(--purple);border-radius:12px;padding:8px 12px;font:inherit;font-weight:bold;cursor:pointer}
+    .emoji{font-size:100px;text-align:center;margin:20px 0 8px}.prompt{text-align:center;font-size:23px;font-weight:800;margin:0 0 12px}.listen{display:block;margin:0 auto 18px;border:0;background:#e7f7ff;color:#217dac;border-radius:14px;padding:10px 16px;font:inherit;font-weight:bold;cursor:pointer}.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.option{font:inherit;font-weight:800;font-size:22px;padding:17px 8px;border:2px solid #e0dcf2;border-radius:17px;background:#fff;color:var(--ink);cursor:pointer}.option.good{background:#dff8e9;border-color:var(--green)}.option.bad{background:#ffe2e9;border-color:var(--pink)}.feedback{height:33px;text-align:center;font-weight:800;font-size:19px;margin:15px 0 0}.stars{text-align:center;font-size:30px;letter-spacing:4px;margin:9px 0}.result{text-align:center}.trophy{font-size:82px}.result h2{font-size:29px}.hint{font-size:14px;color:#6f698e;text-align:center;margin-top:15px}@media(max-width:380px){.options{gap:8px}.option{font-size:19px}.card{padding:17px}.emoji{font-size:82px}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="brand"><h1>馃専 灏忓皬鑻辫闂叧</h1><p>姣忓ぉ 5 鍒嗛挓锛屽揩涔愬鑻辫</p></header>
+    <section id="welcome" class="card"><h2>浣犲ソ锛屽皬鏈嬪弸锛?/h2><p class="intro">鍐欎笅浣犵殑鍚嶅瓧锛屽紑濮嬩粖澶╃殑鑻辫鍐掗櫓鍚э紒</p><input id="name" class="name" maxlength="10" placeholder="鎴戠殑鍚嶅瓧"><button id="start" class="button full">鍑哄彂闂叧锛?/button></section>
+    <section id="home" class="card hidden"><div class="topline"><span id="hello">浣犲ソ锛?/span><span>猸?<span id="total">0</span> 棰楁槦</span></div><div class="progress"><div id="bar"></div></div><h2>閫夋嫨涓€鍏冲紑濮嬪惂</h2><div id="stages" class="stage-grid"></div><p class="hint">姣忎竴鍏虫湁 5 閬撻锛岀瓟瀵逛竴棰樺緱鍒?1 棰楁槦銆?/p></section>
+    <section id="game" class="card hidden"><div class="topline"><button id="back" class="mini">鈥?杩斿洖</button><span id="counter">绗?1 / 5 棰?/span><span>猸?<span id="gameScore">0</span></span></div><div class="progress"><div id="gamebar"></div></div><div id="emoji" class="emoji">馃惐</div><p class="prompt">杩欎釜鑻辫鍗曡瘝鏄粈涔堬紵</p><button id="listen" class="listen">馃攰 鍚竴鍚?/button><div id="options" class="options"></div><div id="feedback" class="feedback" aria-live="polite"></div></section>
+    <section id="finish" class="card result hidden"><div class="trophy">馃弳</div><h2 id="finishTitle">澶浜嗭紒</h2><div id="stars" class="stars"></div><p id="finishText" class="intro"></p><button id="again" class="button full">鍥炲埌闂叧鍦板浘</button></section>
+  </main>
+  <script>
+    const levels=[
+      {name:'鍔ㄧ墿涔愬洯',icon:'馃惗',items:[['cat','馃惐','鐚?],['dog','馃惗','鐙?],['bird','馃惁','楦?],['fish','馃悷','楸?],['duck','馃','楦瓙'],['rabbit','馃惏','鍏斿瓙']]},
+      {name:'褰╄壊涓栫晫',icon:'馃寛',items:[['red','馃敶','绾㈣壊'],['blue','馃數','钃濊壊'],['yellow','馃煛','榛勮壊'],['green','馃煝','缁胯壊'],['orange','馃煚','姗欒壊'],['purple','馃煟','绱壊']]},
+      {name:'姘存灉娲惧',icon:'馃崕',items:[['apple','馃崕','鑻规灉'],['banana','馃崒','棣欒晧'],['pear','馃崘','姊?],['grape','馃崌','钁¤悇'],['watermelon','馃崏','瑗跨摐'],['peach','馃崙','妗冨瓙']]}
+    ];
+    const $=id=>document.getElementById(id); let state=JSON.parse(localStorage.getItem('tinyEnglish')||'{"name":"","done":[],"stars":0}');let level,questions=[],q=0,score=0,locked=false;
+    const shuffle=a=>[...a].sort(()=>Math.random()-.5); const save=()=>localStorage.setItem('tinyEnglish',JSON.stringify(state));
+    function show(id){['welcome','home','game','finish'].forEach(x=>$(x).classList.toggle('hidden',x!==id))}
+    function speak(word){if(!('speechSynthesis' in window))return; speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(word);u.lang='en-US';u.rate=.72;speechSynthesis.speak(u)}
+    function home(){ $('hello').textContent=`浣犲ソ锛?{state.name||'灏忔湅鍙?}锛乣; $('total').textContent=state.stars; $('bar').style.width=`${state.done.length/levels.length*100}%`; $('stages').innerHTML='';levels.forEach((l,i)=>{let done=state.done.includes(i);let b=document.createElement('button');b.className='stage'+(done?' done':'');b.innerHTML=`<strong>${l.icon} 绗?${i+1} 鍏筹細${l.name}${done?'  鉁?:''}</strong><span>${done?'宸茬粡瀹屾垚锛屽啀鐜╀竴娆″惂锛?:'鐐瑰嚮寮€濮嬶紝璁よ瘑 5 涓嫳璇崟璇?}</span>`;b.onclick=()=>begin(i);$('stages').appendChild(b)});show('home')}
+    function begin(i){level=i;questions=shuffle(levels[i].items).slice(0,5);q=0;score=0;renderQuestion();show('game')}
+    function renderQuestion(){locked=false;let item=questions[q];$('counter').textContent=`绗?${q+1} / 5 棰榒;$('gameScore').textContent=score;$('gamebar').style.width=`${q/5*100}%`;$('emoji').textContent=item[1];$('feedback').textContent='';let picks=shuffle([item,...shuffle(levels[level].items.filter(x=>x[0]!==item[0])).slice(0,3)]);$('options').innerHTML='';picks.forEach(x=>{let b=document.createElement('button');b.className='option';b.textContent=x[0];b.onclick=()=>answer(x,b);$('options').appendChild(b)});}
+    function answer(choice,btn){if(locked)return;locked=true;let right=questions[q];if(choice[0]===right[0]){score++;btn.classList.add('good');$('feedback').textContent=`绛斿鍟︼紒${right[2]}鏄?${right[0]}锛乣;speak(right[0])}else{btn.classList.add('bad');[...$('options').children].find(b=>b.textContent===right[0]).classList.add('good');$('feedback').textContent=`鍐嶈涓€娆★細${right[2]}鏄?${right[0]}銆俙;speak(right[0])}setTimeout(()=>{q++;q<5?renderQuestion():complete()},1250)}
+    function complete(){if(!state.done.includes(level)){state.done.push(level);state.stars+=score;save()}$('finishTitle').textContent=score===5?'澶浜嗭紝鍏ㄥ锛?:'瀹屾垚闂叧锛岀湡妫掞紒';$('stars').textContent='猸?.repeat(score)+'鈽?.repeat(5-score);$('finishText').textContent=`浣犲湪鈥?{levels[level].name}鈥濈瓟瀵逛簡 ${score} 棰樸€俙;show('finish')}
+    $('start').onclick=()=>{let name=$('name').value.trim();if(!name){$('name').focus();return}state.name=name;save();home()};$('again').onclick=home;$('back').onclick=home;$('listen').onclick=()=>speak(questions[q][0]);
+    if(state.name){home()}else show('welcome');
+  </script>
+</body>
+</html>
+
+
